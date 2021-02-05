@@ -1,0 +1,11 @@
+{
+  "name": "typescript",
+  "version": "0.0.0",
+  "private": true,
+  "dependencies": {
+    "mini-rx-store": "beta",
+    "rxjs": "^6.6.3",
+    "ts-action": "^11.0.0",
+    "ts-action-operators": "^9.1.1"
+  }
+}
