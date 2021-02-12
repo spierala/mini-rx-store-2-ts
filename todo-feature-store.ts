@@ -80,12 +80,12 @@ export class TodoFeatureStore extends FeatureStore<TodoState> {
   constructor() {
     super("todoFs", initialState); // Feature name 'todos' is provided here already...
 
-    // this.loadTodos();
+    this.loadTodos();
     // this.loadTodoById(5);
 
     this.addTodo({id: 2, title: 'MyTodo'})
 
-    const todoRemoveAction: Action = this.removeTodo(2);
+
     // this.undo(todoRemoveAction);
   }
 
@@ -103,5 +103,12 @@ export class TodoFeatureStore extends FeatureStore<TodoState> {
     return this.setState(state => ({
       todos: state.todos.filter(item => item.id !== id)
     }), 'removeTodo')
+  }
+
+  testRemoveAndUndo() {
+    const todoRemoveAction: Action = this.removeTodo(2);
+    setTimeout(() => {
+      this.undo(todoRemoveAction);
+    }, 3000) 
   }
 }
