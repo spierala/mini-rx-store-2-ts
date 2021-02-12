@@ -107,8 +107,6 @@ export class TodoFeatureStore extends FeatureStore<TodoState> {
 
   testRemoveAndUndo() {
     const todoRemoveAction: Action = this.removeTodo(2);
-    setTimeout(() => {
-      this.undo(todoRemoveAction);
-    }, 3000) 
+    this.undo(todoRemoveAction);
   }
 }

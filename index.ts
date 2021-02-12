@@ -5,7 +5,7 @@ import './style.css';
 const appDiv: HTMLElement = document.getElementById('app');
 appDiv.innerHTML = `<h1>TypeScript Starter</h1>`;
 
-import { configureStore, Store, createFeatureStore, FeatureStore, UndoExtension, LoggerExtension } from 'mini-rx-store';
+import { Action, configureStore, Store, createFeatureStore, FeatureStore, UndoExtension, LoggerExtension, undo } from 'mini-rx-store';
 import { initialState,  todoReducer, TodoState } from './todo-reducer';
 import { AddTodo,  LoadTodos,    RemoveTodo, SelectTodo } from './todo-actions';
 import {Observable} from 'rxjs';
@@ -69,3 +69,7 @@ todoFs.testRemoveAndUndo();
 
 // store.effect(loadEffect);
 // store.dispatch(new LoadTodos())
+
+const removeAction: Action = new RemoveTodo(3); 
+store.dispatch(removeAction);
+store.dispatch(undo(removeAction));
