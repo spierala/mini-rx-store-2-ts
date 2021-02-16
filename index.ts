@@ -31,14 +31,14 @@ store.select(state => state).subscribe(state => console.log('global state', stat
 //     payload: {id: '1', name: 'Use Redux'} // Optional Payload
 // }
 
-// export function addTodo(payload) {
-//   return {
-//     type: 'ADD_TODO',
-//     payload
-//   }
-// }
+export function addTodo(payload) {
+  return {
+    type: 'ADD_TODO',
+    payload
+  }
+}
 
-// store.dispatch(addTodo({id: '1', title: 'Use Redux'}));
+store.dispatch(addTodo({id: '1', title: 'Use Redux'}));
 
 // Use Class-based Action Creators (TypeScript)
 store.dispatch(new AddTodo({id: 2, title: 'Use Redux'}));
