@@ -68,7 +68,7 @@ todoFs.testRemoveAndUndo();
 // todoFs.loadTodoById(2);
 
 store.effect(loadEffect);
-store.dispatch(loadTodos())
+store.dispatch(new LoadTodos())
 
 // store.dispatch(new LoadTodos())
 
