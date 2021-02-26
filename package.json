@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "mini-rx-store": "beta",
-    "rxjs": "^6.6.3",
+    "rxjs": "^6.6.6",
     "ts-action": "^11.0.0",
     "ts-action-operators": "^9.1.1"
   }

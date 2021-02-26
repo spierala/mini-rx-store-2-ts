@@ -5,15 +5,15 @@ import './style.css';
 const appDiv: HTMLElement = document.getElementById('app');
 appDiv.innerHTML = `<h1>TypeScript Starter</h1>`;
 
-import { Action, configureStore, Store, createFeatureStore, FeatureStore, UndoExtension, LoggerExtension, undo } from 'mini-rx-store';
-import { initialState,  todoReducer, TodoState } from './todo-reducer';
+import { Action, configureStore, Store, UndoExtension, LoggerExtension, undo } from 'mini-rx-store';
+import { todoReducer, TodoState } from './todo-reducer';
 import { AddTodo,  LoadTodos,    RemoveTodo, SelectTodo } from './todo-actions';
 import {Observable} from 'rxjs';
 import { getSelectedTodo, getTodoFeatureState, getTodos } from './todo-selectors';
 import { Todo } from './todo';
-import { loadEffect } from './todo-effects';
-import { addTodo } from './ts-todo-actions';
+import { addTodo, loadTodos } from './ts-todo-actions';
 import { TodoFeatureStore } from './todo-feature-store';
+import { loadEffect } from './todo-effects';
 
 const store: Store = configureStore({
 //  reducers: {
@@ -67,7 +67,9 @@ todoFs.testRemoveAndUndo();
 // todoFs.selectTodo(2);
 // todoFs.loadTodoById(2);
 
-// store.effect(loadEffect);
+store.effect(loadEffect);
+store.dispatch(loadTodos())
+
 // store.dispatch(new LoadTodos())
 
 const removeAction: Action = new RemoveTodo(3); 
